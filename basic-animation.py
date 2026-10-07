@@ -1,3 +1,7 @@
+#
+# For https://python.microbit.org/v/3
+#
+
 from microbit import *
 
 all_images = []
@@ -9,7 +13,6 @@ def createFrame(i):
     all_images.append(template)
 
 for i in range(0,10):
-    print(i)
     createFrame(i)
 
 for i in range(0,10):
