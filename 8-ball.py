@@ -1,3 +1,8 @@
+#
+# Connect the LCD1602 to 0x27.
+# Make a YES/NO question to Micro:bit and wait until the answer will show up in the LCD
+#
+
 from microbit import *
 
 # Creamos una instancia
