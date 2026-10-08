@@ -1,6 +1,6 @@
 #
 # For https://python.microbit.org/v/3
-# Connect the joystick to P0
+# Connect the Sx pin of the joystick to P0
 #
 
 from microbit import *
