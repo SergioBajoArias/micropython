@@ -1,5 +1,5 @@
 #
-# Connect Joystick to P0 and LED to P1
+# Connect Sx pin of the joystick to P0 and LED to P1
 #
 
 from microbit import *
