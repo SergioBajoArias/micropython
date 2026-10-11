@@ -29,8 +29,17 @@ answers_pool = [
     "Preferirias no saberlo...",
     "Yo diria que no",
     "Error! Ask the administrator",
-    "Si te lo curras, si"
-
+    "Si te lo curras, si",
+    "Haces demasiadas preguntas",
+    "No te lo crees ni tú",
+    "Ten fe en ti mismo!",
+    "Trabaja y lo tendras",
+    "No me lo habías preguntado antes?",
+    "Ni por asomo",
+    "Vas listo",
+    "Tu que crees?",
+    "Podriamos negociarlo...",
+    "Me preguntas a mi?"
 ]
 
 def think_answer():
