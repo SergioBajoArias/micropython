@@ -3,7 +3,7 @@
 # Connect the Sx pin of the joystick to P0
 #
 
-from microbit import *
+from microbit import pin0, display, Image, sleep
 
 imageCodeTemplate = "00i00:0iii0:iiiii:0iii0:00i00"
 
