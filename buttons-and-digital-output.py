@@ -3,13 +3,11 @@
 # It will be activated with A button and deactivated with B button
 #
 
-from microbit import *
+from microbit import pin0, button_a, button_b, sleep
 
-def on_button_pressed_a():
-    pins.digital_write_pin(DigitalPin.P0, 1)
-
-def on_button_pressed_b():
-    pins.digital_write_pin(DigitalPin.P0, 0)
-
-input.on_button_pressed(Button.A, on_button_pressed_a)
-input.on_button_pressed(Button.B, on_button_pressed_b)
+while True:
+    if(button_a.is_pressed()):
+        pin0.write_digital(1)
+    if(button_b.is_pressed()):
+        pin0.write_digital(0)
+    sleep(100)
