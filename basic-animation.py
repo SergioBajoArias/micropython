@@ -2,7 +2,7 @@
 # For https://python.microbit.org/v/3
 #
 
-from microbit import *
+from microbit import Image, display
 
 all_images = []
 imageCodeTemplate = "00i00:0iii0:iiiii:0iii0:00i00"
