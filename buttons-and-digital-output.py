@@ -1,4 +1,5 @@
 #
+# For https://python.microbit.org/v/3
 # Connect something that requires a digital input to P0 in order to make it work
 # It will be activated with A button and deactivated with B button
 #
