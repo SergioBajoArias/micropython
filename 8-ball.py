@@ -39,7 +39,16 @@ answers_pool = [
     "Vas listo",
     "Tu que crees?",
     "Podriamos negociarlo...",
-    "Me preguntas a mi?"
+    "Me preguntas a mi?",
+    "Es decididamente asi",
+    "Sin duda alguna",
+    "Buenas perspectivas",
+    "No tengo buenas perspectivas...",
+    "Tengo mis dudas...",
+    "Rotundamente no",
+    "No se puede predecir ahora",
+    "Perspectivas no tan buenas",
+    "Mis fuentes dicen que no"
 ]
 
 def think_answer():
