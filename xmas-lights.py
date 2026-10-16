@@ -1,9 +1,8 @@
 from microbit import *
 
-display.off()
-
 selected_animation = 0
-pins = [pin0, pin1, pin2, pin3, pin4, pin6, pin7, pin8]
+display.show(selected_animation)
+pins = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15]
 
 def animation_0():
     for pin in pins:
@@ -15,23 +14,26 @@ def animation_0():
 def animation_1():
     for pin in pins:
         pin.write_digital(1)
-    sleep(150)
+    sleep(500)
     for pin in pins:
         pin.write_digital(0)
-    sleep(5)
+    sleep(500)
     
-    
-
 animations = [animation_0(), animation_1()]
 
 def show_animation():
-    return animations[selected_animation]
+    animations[selected_animation]
 
 while True:
-    if(button_a.was_pressed() and selected_animation < len(animations) - 1):
+    if(button_b.was_pressed() and selected_animation < len(animations) - 1):
         selected_animation += 1
+        display.show(selected_animation)
         
-    if(button_b.was_pressed() and selected_animation > 0):
+    if(button_a.was_pressed() and selected_animation > 0):
         selected_animation -= 1
+        display.show(selected_animation)
     
-    show_animation()
+    if(selected_animation == 0):
+        animation_0()
+    elif(selected_animation == 1):
+        animation_1()
