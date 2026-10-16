@@ -12,6 +12,16 @@ def animation_0():
         pin.write_digital(0)
         sleep(5)
 
+animations = [animation_0()]
+
+def show_animation():
+    return animations[selected_animation]
+
 while True:
-    if(selected_animation == 0):
-        animation_0()
+    if(button_a.was_pressed() and selected_animation < len(animations) - 1):
+        selected_animation++
+        
+    if(button_b.was_pressed() and selected_animation > 0):
+        selected_animation--
+    
+    show_animation()
