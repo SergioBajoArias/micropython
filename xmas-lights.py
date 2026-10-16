@@ -18,14 +18,9 @@ def animation_1():
     for pin in pins:
         pin.write_digital(0)
     sleep(500)
-    
-animations = [animation_0(), animation_1()]
-
-def show_animation():
-    animations[selected_animation]
 
 while True:
-    if(button_b.was_pressed() and selected_animation < len(animations) - 1):
+    if(button_b.was_pressed() and selected_animation < 1):
         selected_animation += 1
         display.show(selected_animation)
         
