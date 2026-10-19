@@ -61,7 +61,7 @@ def animation_5():
         for pin in pins:
             pin.write_analog(i)
 
-animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5()]     
+animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5]     
 
 while True:
     if(button_b.was_pressed() and selected_animation < len(animations) - 1):
