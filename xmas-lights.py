@@ -43,7 +43,7 @@ def animation_3():
 
 def operate_random_pin(value):
     pins_copy = pins.copy()
-    while((len(pins_copy)) > 0):
+    while (len(pins_copy)) > 0:
         pin = random.choice(pins_copy)
         pin.write_digital(value)
         pins_copy.remove(pin)
@@ -64,11 +64,11 @@ def animation_5():
 animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5]     
 
 while True:
-    if(button_b.was_pressed() and selected_animation < len(animations) - 1):
+    if button_b.was_pressed() and selected_animation < len(animations) - 1:
         selected_animation += 1
         display.show(selected_animation)
         
-    if(button_a.was_pressed() and selected_animation > 0):
+    if button_a.was_pressed() and selected_animation > 0:
         selected_animation -= 1
         display.show(selected_animation)
     
