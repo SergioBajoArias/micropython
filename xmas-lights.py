@@ -51,10 +51,11 @@ def operate_random_pin(value):
 def animation_4():
     operate_random_pin(1)
     operate_random_pin(0)
-        
+
+animations = [animation_0, animation_1, animation_2, animation_3, animation_4]     
 
 while True:
-    if(button_b.was_pressed() and selected_animation < 4):
+    if(button_b.was_pressed() and selected_animation < len(animations) - 1):
         selected_animation += 1
         display.show(selected_animation)
         
@@ -62,13 +63,4 @@ while True:
         selected_animation -= 1
         display.show(selected_animation)
     
-    if(selected_animation == 0):
-        animation_0()
-    elif(selected_animation == 1):
-        animation_1()
-    elif(selected_animation == 2):
-        animation_2()
-    elif(selected_animation == 3):
-        animation_3()
-    elif(selected_animation == 4):
-        animation_4()
+    animations[selected_animation]()
