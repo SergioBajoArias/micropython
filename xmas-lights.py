@@ -1,7 +1,7 @@
 from microbit import *
 import random
 
-analog_speed = 10
+analog_speed = 8
 selected_animation = 0
 display.show(selected_animation)
 pins = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15]
@@ -57,9 +57,11 @@ def animation_5():
     for i in range(0, 1024, analog_speed):
         for pin in pins:
             pin.write_analog(i)
-    for i in range(1024, 0, analog_speed):
+            sleep(10)
+    for i in range(1024, 0, -analog_speed):
         for pin in pins:
             pin.write_analog(i)
+            sleep(10)
 
 animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5]     
 
