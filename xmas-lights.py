@@ -57,11 +57,11 @@ def animation_5():
     for i in range(0, 1024, analog_speed):
         for pin in pins:
             pin.write_analog(i)
-            sleep(10)
-    for i in range(1024, 0, -analog_speed):
+            sleep(25)
+    for i in range(1023, 0, -analog_speed):
         for pin in pins:
             pin.write_analog(i)
-            sleep(10)
+            sleep(25)
 
 animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5]     
 
