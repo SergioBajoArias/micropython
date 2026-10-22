@@ -26,9 +26,8 @@ def render():
                           to_animate[LEVEL_INDEX])
         
 while True:
-    x, y = random.randint(0, 4), random.randint(0, 4)
-
     if len(animating) < MAX_ANIMATING:
+        x, y = random.randint(0, 4), random.randint(0, 4)
         animating.append([x, y, 0, STEP])
 
     render()
