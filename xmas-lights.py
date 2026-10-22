@@ -1,10 +1,18 @@
 from microbit import *
 import random
 
-analog_speed = 8
 selected_animation = 0
 display.show(selected_animation)
 pins = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15]
+
+# For animation 5
+ANALOG_HIGH_VALUE = 512
+animating = []
+LED_INDEX = 0
+LEVEL_INDEX = 1
+STEP_INDEX = 2
+MAX_ANIMATING = 4
+STEP = 10
 
 def animation_0():
     for pin in pins:
@@ -54,24 +62,31 @@ def animation_4():
     operate_random_pin(0)
 
 def animation_5():
-    for i in range(0, 1024, analog_speed):
-        for pin in pins:
-            pin.write_analog(i)
-            sleep(25)
-    for i in range(1023, 0, -analog_speed):
-        for pin in pins:
-            pin.write_analog(i)
-            sleep(25)
+    if len(animating) < MAX_ANIMATING:
+        x = random.randint(0, len(pins))
+        animating.append([x, 0, STEP])
+
+    for to_animate in animating:
+        pins[to_animate[LED_INDEX]].write_analog(to_animate[LEVEL_INDEX])
+
+        to_animate[LEVEL_INDEX] = to_animate[LEVEL_INDEX] + to_animate[STEP_INDEX]
+        
+        if to_animate[LEVEL_INDEX] >= ANALOG_HIGH_VALUE:
+            to_animate[STEP_INDEX] = -to_animate[STEP_INDEX]
+        if to_animate[LEVEL_INDEX] == 0 and to_animate[STEP_INDEX] < 0:
+            animating.remove(to_animate)
+        
+    sleep(10)
 
 animations = [animation_0, animation_1, animation_2, animation_3, animation_4, animation_5]     
 
 while True:
-    if button_b.was_pressed() and selected_animation < len(animations) - 1:
-        selected_animation += 1
+    if button_b.was_pressed():
+        selected_animation = (selected_animation + 1) % len(animations)
         display.show(selected_animation)
         
-    if button_a.was_pressed() and selected_animation > 0:
-        selected_animation -= 1
+    if button_a.was_pressed():
+        selected_animation = (selected_animation - 1) % len(animations)
         display.show(selected_animation)
     
     animations[selected_animation]()
