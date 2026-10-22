@@ -6,13 +6,15 @@ display.show(selected_animation)
 pins = [pin0, pin1, pin2, pin8, pin12, pin13, pin14, pin15]
 
 # For animation 5
-ANALOG_HIGH_VALUE = 512
 animating = []
+last_added_running_time = 0
 LED_INDEX = 0
 LEVEL_INDEX = 1
 STEP_INDEX = 2
-MAX_ANIMATING = 4
-STEP = 10
+MAX_ANIMATING = 3
+LED_INTERVAL = 500
+STEP = 5
+ANALOG_HIGH_VALUE = 512
 
 def animation_0():
     for pin in pins:
@@ -62,9 +64,12 @@ def animation_4():
     operate_random_pin(0)
 
 def animation_5():
-    if len(animating) < MAX_ANIMATING:
-        x = random.randint(0, len(pins))
+    global last_added_running_time
+    
+    if len(animating) < MAX_ANIMATING and running_time() - last_added_running_time >= LED_INTERVAL:
+        x = random.randint(0, len(pins) - 1)
         animating.append([x, 0, STEP])
+        last_added_running_time = running_time()
 
     for to_animate in animating:
         pins[to_animate[LED_INDEX]].write_analog(to_animate[LEVEL_INDEX])
