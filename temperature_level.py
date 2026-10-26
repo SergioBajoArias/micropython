@@ -10,8 +10,11 @@ def getMicrobitTemperature():
 def getDHT11Temperature():
     pin0Val = pin0.read_analog()
     volt = pin0Val * 3.3 / 1023.0
-    resist = 10 / ((3.3 / volt) -1)
-    return round(1 / (1 / 25 + math.log(resist / 10) / 3997))
+    if volt > 0:
+        resist = 10 / ((3.3 / volt) -1)
+        return round(1 / (1 / 25 + math.log(resist / 10) / 3997))
+    else:
+        return 0
 
 while True:
     log.add({
