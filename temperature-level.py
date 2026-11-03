@@ -1,9 +1,16 @@
 from microbit import temperature, sleep, pin0, display
 import log
 import math
+import music
 
 # interval = 30 * 60 * 1000
 interval = 5000
+
+def beep():
+    display.set_pixel(2, 2, 9)
+    music.play(['a'])
+    sleep(100)
+    display.set_pixel(2, 2, 0)
 
 def getMicrobitTemperature():
     return temperature()
@@ -23,9 +30,7 @@ def getDHT11Resist(volt):
     
 
 while True:
-    display.set_pixel(2, 2, 9)
-    sleep(100)
-    display.set_pixel(2, 2, 0)    
+    beep()
     voltDHT11 = getDHT11Volt()
     resistDHT11 = 0
     tempDHT11 = 0
