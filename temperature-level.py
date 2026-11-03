@@ -5,8 +5,6 @@ import math
 # interval = 30 * 60 * 1000
 interval = 5000
 
-log.delete()
-
 def getMicrobitTemperature():
     return temperature()
 
