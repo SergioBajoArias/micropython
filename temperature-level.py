@@ -1,10 +1,13 @@
 from microbit import temperature, sleep, pin0, pin1, display
+from Lib_DHT11 import DHT11
 import log
 import math
 import speech
 
 interval = 5 * 60 * 1000
 sleep(2000)
+sensor0 = DHT11(pin0)
+sensor1 = DHT11(pin1)
 
 def beep():
     display.set_pixel(2, 2, 9)
@@ -29,13 +32,17 @@ while True:
     try:
         log.add({
             'Temperature Microbit': getMicrobitTemperature(),
-            'Temperature DHT11 (P0)': getDHT11Temperature(pin0),
-            'Temperature DHT11 (P1)': getDHT11Temperature(pin1),
+            'Temperature DHT11 P0 (alg)': getDHT11Temperature(pin0),
+            'Temperature DHT11 P1 (alg)': getDHT11Temperature(pin1),
+            'Temperature DHT11 P0 (lib)': sensor0.read(),
+            'Temperature DHT11 P1 (lib)': sensor1.read(),
         })
     except Exception as e:
         log.add({
             'Temperature Microbit': getMicrobitTemperature(),
-            'Temperature DHT11 (P0)': '---',
-            'Temperature DHT11 (P1)': '---',
+            'Temperature DHT11 P0 (alg)': '---',
+            'Temperature DHT11 P1 (alg)': '---',
+            'Temperature DHT11 P0 (lib)': '---',
+            'Temperature DHT11 P1 (lib)': '---',
         })
     sleep(interval)
