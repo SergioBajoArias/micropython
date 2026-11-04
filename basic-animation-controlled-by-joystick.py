@@ -4,7 +4,7 @@
 #
 
 from microbit import pin0, display, Image, sleep
-from Lib_Utils import map
+from Lib_Utils import mapRounded
 
 imageCodeTemplate = "00i00:0iii0:iiiii:0iii0:00i00"
 
@@ -15,6 +15,6 @@ def renderImage(i):
 
 while True:
     joystickVal = pin0.read_analog()
-    i = round(map(joystickVal, 0, 1023, 0, 9))
+    i = mapRounded(joystickVal, 0, 1023, 0, 9)
     renderImage(i)
     sleep(100)
