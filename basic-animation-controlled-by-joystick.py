@@ -4,11 +4,9 @@
 #
 
 from microbit import pin0, display, Image, sleep
+from Lib_Utils import map
 
 imageCodeTemplate = "00i00:0iii0:iiiii:0iii0:00i00"
-
-def map(x, in_min, in_max, out_min, out_max): 
-  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 
 def renderImage(i):
     imageCode = imageCodeTemplate.replace("i", str(i))
