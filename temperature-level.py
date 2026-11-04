@@ -1,3 +1,7 @@
+#
+# Connect two DHT11 sensors to P0 and P1 respectively
+#
+
 from microbit import temperature, sleep, pin0, pin1, display
 from Lib_DHT11 import DHT11
 import log
