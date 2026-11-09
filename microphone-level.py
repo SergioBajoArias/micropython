@@ -14,6 +14,6 @@ levels = [level0, level1, level2, level3, level4, level5, level6, level7]
 
 while True:
     soundLevel = microphone.sound_level()
-    levelIndex = mapRounded(soundLevel, 0, 255, 0, len(levels))
+    levelIndex = mapRounded(soundLevel, 0, 255, 0, len(levels) - 1)
     display.show(levels[levelIndex])
     sleep(100)
